@@ -4,6 +4,8 @@ import javax.swing.*;
 
 public class Main {
     public static int valorSwith = -1;
+    public static int dineroDeposito;
+//    public static int dineroRetiro;
 
     public static void main(String[] args) {
 
@@ -15,30 +17,23 @@ public class Main {
             inicioMenu();
             switch (valorSwith) {
                 case 1:
-                    System.out.println(" VALOR 1");
-//                Integer.parseInt(null, ("Consulta" + miCajero.dinero));
-//                    JOptionPane.showMessageDialog(null, +miCajero.dinero);
                     int vaConsulta;
+                    JOptionPane.showMessageDialog(null, +miCajero.dinero);
+
 
                     break;
                 case 2:
-                    System.out.println(" VALOR 2");
-                    int dineroDeposito;
-                    int vaDeposito;
                     dineroDeposito = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el deposito"));
-
-//                    miCajero.setDinero(dineroDeposito);
-                    vaDeposito = dineroDeposito;
-                    System.out.println(vaDeposito);
+                    miCajero.depositoDinero(dineroDeposito);
                     break;
                 case 3:
-                    System.out.println(" VALOR 3");
-                    break;
-                case 4:
-                    System.out.println(" VALOR 4");
+                    JOptionPane.showMessageDialog(null, "Saldo Actual :" + miCajero.dinero);
+                    dineroDeposito = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el monto del retiro"));
+                    miCajero.retirarDinero(dineroDeposito);
+
                     break;
                 default:
-                    System.out.println(" VALOR DEFAULT");
+                    System.exit(0);
                     break;
             }
         }
@@ -49,8 +44,7 @@ public class Main {
         valorSwith = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el paso a realizar"
                 + "\n 1.- Consultar Saldo"
                 + "\n 2.- Depositar"
-                + "\n 3.- Retirar"
-                + "\n 4.- Terminar"));
+                + "\n 3.- Retirar"));
 
         return valorSwith;
     }

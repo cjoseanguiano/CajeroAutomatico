@@ -34,17 +34,16 @@ public class ATM {
         }
     }
 
-    public void retirarDinero(double d) {
-        if (dinero > d) {
-            System.out.println("El retiro es satisfactorio " + this.dinero);
-            return;
-        } else if (dinero <= 0) {
-            System.out.println("El retiro que intentas realizar es mayor a tu saldo actual ");
-            return;
-        }
-
-        this.dinero -= d;
-        System.out.println("El saldo despues de retirar es :" + this.dinero);
+public void retirarDinero( double d ){
+    if ( d <= 0 ){
+        System.out.println( "No existen pesos negativos... no se hizo nada" );
+        return;
     }
-
+    if ( this.dinero < d ){
+        System.out.println( "La cantidad a retirar es mayor que el saldo disponible... no se hizo nada" );
+        return;
+    }
+    this.dinero -= d;
+    System.out.println( "El saldo de la cuenta es: " + this.dinero );
+}
 }
